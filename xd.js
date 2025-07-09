@@ -8,7 +8,7 @@ let animationFrameId;
 let waveTime = 0; // Un contador para animar las ondas
 
 // --- Configuraciones de los elementos del Canvas ---
-const NUM_STARS = 20;
+const NUM_STARS = 20000;
 
 const TRIANGLE_POINTS_DENSITY = 0.00005; // Ajusta para más/menos puntos en el triángulo
 const TRIANGLE_LINE_MAX_DIST = 70; // Distancia máxima para conectar puntos del triángulo
