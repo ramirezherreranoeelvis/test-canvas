@@ -1,3 +1,6 @@
+import { Star } from "./Star.js";
+import { NetworkPoint } from "./NetworkPoint.js";
+
 const canvas = document.getElementById("myCanvas");
 const ctx = canvas.getContext("2d");
 
@@ -6,8 +9,6 @@ let waveTime = 0; // Un contador para animar las ondas
 
 // --- Configuraciones de los elementos del Canvas ---
 const NUM_STARS = 20;
-const STAR_RADIUS = 0.8;
-const STAR_COLOR = "rgba(255, 255, 255, 0.8)"; // Blanco semitransparente
 
 const TRIANGLE_POINTS_DENSITY = 0.00005; // Ajusta para más/menos puntos en el triángulo
 const TRIANGLE_LINE_MAX_DIST = 70; // Distancia máxima para conectar puntos del triángulo
@@ -27,54 +28,6 @@ const WAVE_COLOR = "rgba(255, 255, 255, 0.7)";
 let stars = [];
 let trianglePoints = [];
 let wavePoints = [];
-
-/**
- * Clase para representar una estrella de fondo.
- */
-class Star {
-      constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.radius = STAR_RADIUS;
-      }
-
-      /**
-       * Dibuja la estrella en el canvas.
-       * @param {CanvasRenderingContext2D} ctx - Contexto de renderizado del canvas.
-       */
-      draw(ctx) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-            ctx.fillStyle = STAR_COLOR;
-            ctx.fill();
-      }
-}
-
-/**
- * Clase para representar un punto en las redes (triángulo o ondas).
- * Guarda la posición original para aplicar efectos como las ondas.
- */
-class NetworkPoint {
-      constructor(x, y) {
-            this.x = x;
-            this.y = y;
-            this.originalX = x; // Guarda la posición original
-            this.originalY = y;
-      }
-
-      /**
-       * Dibuja el punto de la red en el canvas.
-       * @param {CanvasRenderingContext2D} ctx - Contexto de renderizado del canvas.
-       * @param {number} radius - Radio del punto.
-       * @param {string} color - Color del punto.
-       */
-      draw(ctx, radius, color) {
-            ctx.beginPath();
-            ctx.arc(this.x, this.y, radius, 0, Math.PI * 2);
-            ctx.fillStyle = color;
-            ctx.fill();
-      }
-}
 
 /**
  * Configura las dimensiones del canvas y maneja el redimensionamiento de la ventana.
